@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "python-ddd"
+version = "0.1.0"
+description = ""
+authors = ["Mikhail Spiridonov <mspiridonov2706@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.14"
+mypy = "^1.8.0"
+pre-commit = "^3.6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length = 120
+force-exclude = true
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "E", # pycodestyle error
+    "W", # pycodestyle warning
+    "F", # pyflakes
+    "I", # isort
+    "N", # pep8-naming
+] # all rules here https://docs.astral.sh/ruff/rules/#pep8-naming-n
+fixable = ["F401", "E501"]
+ignore = ["E203"]
+
+[tool.ruff.lint.isort]
+lines-after-imports = -1
+# known-first-party = ["app", "database", "tests"]
+
+[tool.mypy]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+explicit_package_bases = true
